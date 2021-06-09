@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Discovery/Discovery.iml" filepath="$PROJECT_DIR$/Discovery/Discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Loan/Loan.iml" filepath="$PROJECT_DIR$/Loan/Loan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Router/Router.iml" filepath="$PROJECT_DIR$/Router/Router.iml" />
+      <module fileurl="file://$PROJECT_DIR$/User/User.iml" filepath="$PROJECT_DIR$/User/User.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bankmanagementsystem.iml" filepath="$PROJECT_DIR$/bankmanagementsystem.iml" />
+    </modules>
+  </component>
+</project>

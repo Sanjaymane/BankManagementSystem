@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Discovery" />
+        <module name="Loan" />
+        <module name="Router" />
+        <module name="User" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bankmanagementsystem" target="1.8" />
+      <module name="Discovery" target="1.8" />
+      <module name="Loan" target="1.8" />
+      <module name="Router" target="1.8" />
+      <module name="User" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
