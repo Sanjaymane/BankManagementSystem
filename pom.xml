@@ -13,6 +13,7 @@
         <module>Router</module>
         <module>Loan</module>
         <module>User</module>
+        <module>Common</module>
     </modules>
 
     <parent>

@@ -6,6 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Comman" />
+        <module name="Common" />
         <module name="Discovery" />
         <module name="Loan" />
         <module name="Router" />
@@ -14,6 +16,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bankmanagementsystem" target="1.8" />
+      <module name="Comman" target="1.8" />
+      <module name="Common" target="1.8" />
       <module name="Discovery" target="1.8" />
       <module name="Loan" target="1.8" />
       <module name="Router" target="1.8" />

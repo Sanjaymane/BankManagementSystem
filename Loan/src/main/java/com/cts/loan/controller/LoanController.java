@@ -4,6 +4,7 @@ import com.cts.loan.configuration.ResponseVO;
 import com.cts.loan.model.LoanMaster;
 import com.cts.loan.model.UserLoan;
 import com.cts.loan.service.LoanService;
+import exception.BankManagementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class LoanController {
     LoanService loanService;
 
     @GetMapping("/getAllLoan")
-    public ResponseEntity getAllLoanDetail() {
+    public ResponseEntity getAllLoanDetail() throws BankManagementException{
 
         ResponseVO responseVO = new ResponseVO();
 
@@ -33,15 +34,13 @@ public class LoanController {
             return new ResponseEntity(responseVO, HttpStatus.OK);
 
         } else {
-            responseVO.setStatusCode("500");
-            responseVO.setResult(list);
-            responseVO.setMessage("Data Not Found");
-            return new ResponseEntity(responseVO, HttpStatus.NOT_FOUND);
+
+            throw new BankManagementException("Data Not Found");
         }
     }
 
     @PostMapping("/applyLoan")
-    public ResponseEntity applyLoan(@RequestBody UserLoan loanMasterReqDto) {
+    public ResponseEntity applyLoan(@RequestBody UserLoan loanMasterReqDto) throws BankManagementException {
 
         ResponseVO responseVO = new ResponseVO();
 
@@ -49,21 +48,18 @@ public class LoanController {
 
         if (appliedforLoanMaster != null) {
 
-            responseVO.setStatusCode("200");
+            responseVO.setStatusCode("201");
             responseVO.setResult(loanMasterReqDto);
             responseVO.setMessage("Insert success");
             return new ResponseEntity(responseVO, HttpStatus.OK);
 
         } else {
-            responseVO.setStatusCode("500");
-            responseVO.setResult(loanMasterReqDto);
-            responseVO.setMessage("Insert failed");
-            return new ResponseEntity(responseVO, HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new BankManagementException("Not Inserted");
         }
     }
 
     @PutMapping("/updateLoan")
-    public ResponseEntity updateLoan(@RequestBody UserLoan loanMasterReqDto) {
+    public ResponseEntity updateLoan(@RequestBody UserLoan loanMasterReqDto) throws BankManagementException {
 
         ResponseVO responseVO = new ResponseVO();
 
@@ -71,21 +67,18 @@ public class LoanController {
 
         if (updateLoan != null) {
 
-            responseVO.setStatusCode("200");
+            responseVO.setStatusCode("201");
             responseVO.setResult(loanMasterReqDto);
             responseVO.setMessage("Updated success");
             return new ResponseEntity(responseVO, HttpStatus.OK);
 
         } else {
-            responseVO.setStatusCode("500");
-            responseVO.setResult(loanMasterReqDto);
-            responseVO.setMessage("update failed");
-            return new ResponseEntity(responseVO, HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new BankManagementException("Not Inserted");
         }
     }
 
     @DeleteMapping()
-    public ResponseEntity deleteLoan(@RequestBody UserLoan loanMasterReqDto) {
+    public ResponseEntity deleteLoan(@RequestBody UserLoan loanMasterReqDto)throws BankManagementException {
 
         ResponseVO responseVO = new ResponseVO();
 
@@ -93,16 +86,13 @@ public class LoanController {
 
         if (updateLoan != null) {
 
-            responseVO.setStatusCode("200");
+            responseVO.setStatusCode("201");
             responseVO.setResult(loanMasterReqDto);
             responseVO.setMessage("deleted success");
             return new ResponseEntity(responseVO, HttpStatus.OK);
 
         } else {
-            responseVO.setStatusCode("500");
-            responseVO.setResult(loanMasterReqDto);
-            responseVO.setMessage("delete failed");
-            return new ResponseEntity(responseVO, HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new BankManagementException("Failed to remove");
         }
     }
 
